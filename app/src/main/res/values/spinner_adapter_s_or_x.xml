@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="choise">
+        <item>Путь при равномерном движении</item>
+        <item>Положение тела х при равномерном движении</item>
+        <item>Путь при равноускоренном движении</item>
+        <item>Положение тела х при равноускоренном движении</item>
+<!--
+        <item>Высота тела, брошенного вертикально</item>
+-->
+    </string-array>
+</resources>

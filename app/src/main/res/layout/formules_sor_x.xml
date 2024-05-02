@@ -1,0 +1,65 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/backButton"
+        android:layout_width="105dp"
+        android:layout_height="wrap_content"
+        android:background="#80000000"
+        android:text="Назад"
+        android:textColor="#FFFFFF" />
+
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="match_parent"
+        android:layout_height="48dp" />
+
+    <TextView
+        android:id="@+id/resultTextView"
+        android:layout_width="match_parent"
+        android:layout_height="192dp"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:text="S = v * t\nВведите все известные значения\n"/>
+
+    <EditText
+        android:id="@+id/numberfEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Введите f" />
+    <EditText
+        android:id="@+id/numberx0EditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Введите x0" />
+    <EditText
+        android:id="@+id/numbergEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Введите g (по умолчанию 10)" />
+    <EditText
+        android:id="@+id/numberpEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Введите p" />
+
+    <EditText
+        android:id="@+id/numbervEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Введите V" />
+
+    <Button
+        android:id="@+id/divideButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Разделить"
+        android:visibility="gone"/>
+
+</LinearLayout>
