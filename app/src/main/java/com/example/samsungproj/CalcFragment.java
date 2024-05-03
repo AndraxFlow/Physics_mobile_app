@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -26,31 +27,31 @@ import java.util.List;
 public class CalcFragment extends Fragment {
 
     private RecyclerView recyclerView;
-    private Adapter adapter;
+    private AdapterClass adapter;
     private List<String> dataList;
 
     public CalcFragment() {
         // Required empty public constructor
     }
-    public void setOnItemClickListener(Adapter.OnItemClickListener listener) {
+    public void setOnItemClickListener(AdapterClass.OnItemClickListener listener) {
         adapter.setOnItemClickListener(listener);
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_list, container, false);
+        View view = inflater.inflate(R.layout.fragment_calc, container, false);
 
         recyclerView = view.findViewById(R.id.recyclerView);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        recyclerView.setLayoutManager(new GridLayoutManager(getActivity(),2));
 
         dataList = new ArrayList<String>();
         // Здесь вы можете добавить элементы в dataList
         dataList.add("СИЛА АРХИМЕДА");
         dataList.add("РАССТОЯНИЕ И ПОЛОЖЕНИЕ ТЕЛА ");
-        adapter = new Adapter(dataList);
+        adapter = new AdapterClass(dataList);
         recyclerView.setAdapter(adapter);
-        setOnItemClickListener(new Adapter.OnItemClickListener() {
+        setOnItemClickListener(new AdapterClass.OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
                 // Действия при нажатии на элемент списка
