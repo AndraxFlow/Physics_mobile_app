@@ -1,6 +1,9 @@
 package com.example.samsungproj.FormulesCalc;
+import android.app.Person;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -10,9 +13,26 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.room.Room;
+import androidx.room.RoomDatabase;
+import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import com.example.samsungproj.R;
+import com.example.samsungproj.database.entity.PersonDAO;
+import com.example.samsungproj.database.entity.PersonDatabase;
+import com.example.samsungproj.database.entity.PersonEntity;
+
+import java.util.Collection;
+import java.util.List;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
 
 public class SorX extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
@@ -29,7 +49,8 @@ public class SorX extends AppCompatActivity implements AdapterView.OnItemSelecte
     private TextView resultTextView;
     private Button backButton; // Add backButton declaration
 
-
+    PersonDatabase personDB;
+    List<PersonEntity> personList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +69,8 @@ public class SorX extends AppCompatActivity implements AdapterView.OnItemSelecte
         backButton = findViewById(R.id.backButton); // Initialize backButton
 
 
+
+
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
                 this,
                 R.array.choise,
@@ -59,6 +82,20 @@ public class SorX extends AppCompatActivity implements AdapterView.OnItemSelecte
         Spinner spinner = (Spinner) findViewById(R.id.spinner);
         spinner.setOnItemSelectedListener(this);
 
+        RoomDatabase.Callback myCallBack = new RoomDatabase.Callback() {
+            @Override
+            public void onCreate(@NonNull SupportSQLiteDatabase db) {
+                super.onCreate(db);
+            }
+
+            @Override
+            public void onOpen(@NonNull SupportSQLiteDatabase db) {
+                super.onOpen(db);
+            }
+        };
+
+        personDB = Room.databaseBuilder(getApplicationContext(), PersonDatabase.class,
+                "PersonDB").addCallback(myCallBack).build();
 
         ansButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -314,6 +351,21 @@ public class SorX extends AppCompatActivity implements AdapterView.OnItemSelecte
         ansButton = findViewById(R.id.divideButton);
         resultTextView = findViewById(R.id.resultTextView);
         ansButton.setVisibility(View.GONE);
+        // adding
+        String name = "abc";
+        String age = "12";
+        PersonEntity p1 = new PersonEntity(name, age);
+
+        addPersonInBackGround(p1);
+
+
+
+        // getting
+        getPersonListInBackGround();
+
+
+
+
         switch (position) {
             case 0:
                 textView = findViewById(R.id.resultTextView);
@@ -413,11 +465,67 @@ public class SorX extends AppCompatActivity implements AdapterView.OnItemSelecte
 
                 break;
         }
+
     }
 
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 
     }
+
+    public void addPersonInBackGround(PersonEntity person){
+
+        ExecutorService executorService = Executors.newSingleThreadExecutor();
+
+        Handler handler = new Handler(Looper.getMainLooper());
+
+        executorService.execute(new Runnable() {
+            @Override
+            public void run() {
+                //background task
+                personDB.getPersonDAO().addPerson(person);
+
+
+                //on finishing task
+                handler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast.makeText(SorX.this, "Person is added to database",Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+        });
+    }
+    public void getPersonListInBackGround(){
+
+        ExecutorService executorService = Executors.newSingleThreadExecutor();
+
+        Handler handler = new Handler(Looper.getMainLooper());
+
+        executorService.execute(new Runnable() {
+            @Override
+            public void run() {
+                //background task
+                personList = personDB.getPersonDAO().getAllPersons();
+
+
+                //on finishing task
+                handler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        StringBuilder sb = new StringBuilder();
+                        for (PersonEntity p : personList){
+                            sb.append(p.getName() + " : " + p.getAge());
+                            sb.append("\n");
+                        }
+                        String finalData = sb.toString();
+                        Toast.makeText(SorX.this, "" + finalData,Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+        });
+    }
+
+
 }
 
