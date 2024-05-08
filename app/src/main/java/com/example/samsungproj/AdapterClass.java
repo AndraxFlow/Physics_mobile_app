@@ -1,24 +1,36 @@
 package com.example.samsungproj;
 
+import static android.app.PendingIntent.getActivity;
+
+
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.samsungproj.FormulesCalc.FArch;
+import com.example.samsungproj.FormulesCalc.SorX;
 import com.example.samsungproj.R;
+import com.example.samsungproj.themes.Dinamika;
 
 import java.util.List;
 
 public class AdapterClass extends RecyclerView.Adapter<AdapterClass.ViewHolder> {
     private List<String> itemList;
+    Context context;
     private OnItemClickListener listener;
 
-    public AdapterClass(List<String> itemList) {
+    public AdapterClass(List<String> itemList, Context context) {
         this.itemList = itemList;
+        this.context = context;
     }
 
     public interface OnItemClickListener {
@@ -42,9 +54,36 @@ public class AdapterClass extends RecyclerView.Adapter<AdapterClass.ViewHolder> 
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
         String item = itemList.get(position);
         holder.bind(item);
+
+        Button button = holder.button.findViewById(R.id.button1);
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(context, button.getText(), Toast.LENGTH_SHORT).show();
+
+                Intent intent;// = new Intent(getActivity(), Themes.class);
+                //intent.putExtra("ключ", dataList.get(position));
+
+                //String receivedValue = getIntent().getStringExtra("ключ");
+                switch (position){
+                    case 0:
+                        intent =  new Intent(context, FArch.class);
+                        break;
+                    case 1:
+                        intent =  new Intent(context, SorX.class);
+                        break;
+                    default:
+                        intent =  new Intent(context, Dinamika.class);
+                        break;
+                }
+                context.startActivity(intent);
+            }
+
+        });
     }
 
     @Override
@@ -76,7 +115,6 @@ public class AdapterClass extends RecyclerView.Adapter<AdapterClass.ViewHolder> 
         }
 
         public void bind(String item) {
-
             // Дополнительная логика привязки данных, если необходимо
             button.setText(String.valueOf(item));
         }

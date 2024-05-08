@@ -8,16 +8,17 @@
     android:background="@color/material_dynamic_tertiary40">
 
     <!-- TODO: Update blank fragment layout -->
+
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:text="@string/hello_blank_fragment" />
 
-
     <Button
         android:id="@+id/button1"
         android:layout_width="232dp"
-        android:layout_height="78dp"
+        android:layout_height="307dp"
         android:text="Открыть новое окно 1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -26,5 +27,16 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.249" />
 
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="358dp"
+        android:layout_height="78dp"
+        android:text="Открыть новое окно 1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.329"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.249" />
 
 </FrameLayout>

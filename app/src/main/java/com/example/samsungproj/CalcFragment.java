@@ -49,7 +49,7 @@ public class CalcFragment extends Fragment {
         // Здесь вы можете добавить элементы в dataList
         dataList.add("СИЛА АРХИМЕДА");
         dataList.add("РАССТОЯНИЕ И ПОЛОЖЕНИЕ ТЕЛА ");
-        adapter = new AdapterClass(dataList);
+        adapter = new AdapterClass(dataList, getActivity());
         recyclerView.setAdapter(adapter);
         setOnItemClickListener(new AdapterClass.OnItemClickListener() {
             @Override
