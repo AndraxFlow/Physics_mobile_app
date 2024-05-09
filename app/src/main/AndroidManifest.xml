@@ -19,6 +19,9 @@
             android:name=".FormulesCalc.A"
             android:exported="false" />
         <activity
+            android:name=".FormulesCalc.A"
+            android:exported="false" />
+        <activity
             android:name=".FormulesCalc.SorX"
             android:exported="false" />
         <activity
