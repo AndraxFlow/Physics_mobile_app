@@ -16,6 +16,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.samsungproj.FormulesCalc.A;
 import com.example.samsungproj.FormulesCalc.FArch;
 import com.example.samsungproj.FormulesCalc.SorX;
 import com.example.samsungproj.R;
@@ -75,6 +76,9 @@ public class AdapterClass extends RecyclerView.Adapter<AdapterClass.ViewHolder> 
                         break;
                     case 1:
                         intent =  new Intent(context, SorX.class);
+                        break;
+                    case 2:
+                        intent =  new Intent(context, A.class);
                         break;
                     default:
                         intent =  new Intent(context, Dinamika.class);

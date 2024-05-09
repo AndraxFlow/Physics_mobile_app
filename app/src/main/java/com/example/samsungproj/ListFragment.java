@@ -1,29 +1,19 @@
 package com.example.samsungproj;
 
-import static android.content.Intent.getIntent;
-
-import static androidx.core.content.ContentProviderCompat.requireContext;
-
-import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
 
-import com.example.samsungproj.Adapter;
-import com.example.samsungproj.R;
 import com.example.samsungproj.database.entity.AppDatabase;
-import com.example.samsungproj.database.entity.UserInfo;
-import com.example.samsungproj.database.entity.UserInfoDao;
-import com.example.samsungproj.database.entity.UserInfoDao_Impl;
+import com.example.samsungproj.database.entity.models.UserInfo;
 import com.example.samsungproj.themes.Dinamika;
 import com.example.samsungproj.themes.Kinematika;
 
@@ -78,7 +68,7 @@ public class ListFragment extends Fragment {
             public void onItemClick(int position) {
 
                 // Создание объекта  с идентификатором кнопки
-                UserInfo userInfo = new UserInfo();
+                UserInfo userInfo = new UserInfo("smtDateTime", 1,1);
                 userInfo.setId(position); // position - идентификатор нажатой кнопки
 
                 // Выполнение операции в фоновом потоке

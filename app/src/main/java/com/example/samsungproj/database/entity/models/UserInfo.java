@@ -1,4 +1,4 @@
-package com.example.samsungproj.database.entity;
+package com.example.samsungproj.database.entity.models;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey;
 
 @Entity(tableName = "user_info")
 public class UserInfo {
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     public int id;
     @ColumnInfo(name = "datetime")
 
@@ -47,6 +47,12 @@ public class UserInfo {
 
 
     public void setScrollPosition(int scrollPosition) {
+        this.scrollPosition = scrollPosition;
+    }
+
+    public UserInfo(String datetime, int topicId, int scrollPosition) {
+        this.datetime = datetime;
+        this.topicId = topicId;
         this.scrollPosition = scrollPosition;
     }
 }

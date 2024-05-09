@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.samsungproj.Adapter;
+import com.example.samsungproj.FormulesCalc.A;
 import com.example.samsungproj.FormulesCalc.FArch;
 import com.example.samsungproj.FormulesCalc.SorX;
 import com.example.samsungproj.R;
@@ -48,7 +49,8 @@ public class CalcFragment extends Fragment {
         dataList = new ArrayList<String>();
         // Здесь вы можете добавить элементы в dataList
         dataList.add("СИЛА АРХИМЕДА");
-        dataList.add("РАССТОЯНИЕ И ПОЛОЖЕНИЕ ТЕЛА ");
+        dataList.add("РАССТОЯНИЕ И ПОЛОЖЕНИЕ ТЕЛА");
+        dataList.add("УСКОРЕНИЕ");
         adapter = new AdapterClass(dataList, getActivity());
         recyclerView.setAdapter(adapter);
         setOnItemClickListener(new AdapterClass.OnItemClickListener() {
@@ -67,6 +69,9 @@ public class CalcFragment extends Fragment {
                         break;
                     case 1:
                         intent =  new Intent(getActivity(), SorX.class);
+                        break;
+                    case 2:
+                        intent =  new Intent(getActivity(), A.class);
                         break;
                     default:
                         intent =  new Intent(getActivity(), Dinamika.class);

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="choiseA">
+        <item>I закон Ньютона</item>
+        <item>Ускорение от времени и скоростей</item>
+        <item>Центростремительное ускорение</item>
+        <!--
+                <item>Высота тела, брошенного вертикально</item>
+        -->
+    </string-array>
+</resources>

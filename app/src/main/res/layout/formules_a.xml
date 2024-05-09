@@ -8,11 +8,17 @@
 
     <Button
         android:id="@+id/backButton"
-        android:layout_width="119dp"
+        android:layout_width="105dp"
         android:layout_height="wrap_content"
         android:background="#80000000"
         android:text="Назад"
         android:textColor="#FFFFFF" />
+
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="match_parent"
+        android:layout_height="48dp" />
 
     <TextView
         android:id="@+id/resultTextView"
@@ -20,35 +26,49 @@
         android:layout_height="192dp"
         android:textSize="24sp"
         android:textStyle="bold"
-        android:text="F = pgV\nВведите все известные значения\n"/>
+        android:text="S = v * t\nВведите все известные значения\n"/>
+
+
 
     <Button
         android:id="@+id/divideButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Вычислить" />
+        android:text="Вычислить"
+        android:visibility="gone"/>
 
     <EditText
         android:id="@+id/numberfEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Введите f" />
-    <EditText
-        android:id="@+id/numbergEditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Введите g (по умолчанию 10)" />
-    <EditText
-        android:id="@+id/numberpEditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Введите p" />
 
+    <EditText
+        android:id="@+id/numberaEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Введите a" />
+    <EditText
+        android:id="@+id/numbertEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Введите t" />
     <EditText
         android:id="@+id/numbervEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Введите V" />
+        android:hint="Введите v" />
+    <EditText
+        android:id="@+id/numberv0EditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Введите v0" />
+
+    <EditText
+        android:id="@+id/numbermEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Введите m" />
 
 
 

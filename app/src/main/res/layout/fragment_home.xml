@@ -39,4 +39,42 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.249" />
 
+    <Button
+        android:id="@+id/buttonAddDb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add"
+
+        android:layout_gravity="center"
+        android:layout_marginTop="200dp"/>
+
+    <EditText
+        android:id="@+id/editTextUpdateDb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text"
+        android:text="ввеите текст"
+        android:layout_gravity="center"
+        android:layout_marginTop="100dp"/>
+
+    <EditText
+        android:id="@+id/editTextId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:text="1"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"/>
+
+    <Button
+        android:id="@+id/buttonGetDb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="get"
+
+        android:layout_gravity="center"
+        android:layout_marginTop="150dp"/>
+
 </FrameLayout>

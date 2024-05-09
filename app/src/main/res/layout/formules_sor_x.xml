@@ -28,6 +28,13 @@
         android:textStyle="bold"
         android:text="S = v * t\nВведите все известные значения\n"/>
 
+    <Button
+        android:id="@+id/divideButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Вычислить"
+        android:visibility="gone"/>
+
     <EditText
         android:id="@+id/numberfEditText"
         android:layout_width="match_parent"
@@ -55,11 +62,6 @@
         android:layout_height="wrap_content"
         android:hint="Введите V" />
 
-    <Button
-        android:id="@+id/divideButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Разделить"
-        android:visibility="gone"/>
+
 
 </LinearLayout>
