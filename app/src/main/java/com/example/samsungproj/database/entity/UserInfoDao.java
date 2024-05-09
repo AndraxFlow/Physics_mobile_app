@@ -1,5 +1,6 @@
 package com.example.samsungproj.database.entity;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
@@ -20,13 +21,16 @@ public interface UserInfoDao {
     @Query("SELECT * FROM user_info")
     List<UserInfo> getAllUserInfos();
 
+    @Query("SELECT * FROM user_info")
+    LiveData<List<UserInfo>> getAllUserInfosLiveData();
+
     @Update
     void updateButtonData(UserInfo buttonData);
 
     @Query("SELECT * FROM user_info ORDER BY id DESC LIMIT 1")
     UserInfo getLastButtonData();
 
-    @Query("UPDATE user_info  SET datetime WHERE id= :id")
-    void updateName(String id);
+    @Query("UPDATE user_info  SET datetime= :name WHERE id= :id")
+    void updateName(int id, String name);
 
 }

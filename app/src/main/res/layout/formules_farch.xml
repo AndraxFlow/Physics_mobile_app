@@ -48,6 +48,6 @@
         android:id="@+id/divideButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Разделить" />
+        android:text="Вычислить" />
 
 </LinearLayout>

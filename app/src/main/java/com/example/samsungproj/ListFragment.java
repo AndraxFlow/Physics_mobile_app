@@ -23,7 +23,6 @@ import com.example.samsungproj.R;
 import com.example.samsungproj.database.entity.AppDatabase;
 import com.example.samsungproj.database.entity.UserInfo;
 import com.example.samsungproj.database.entity.UserInfoDao;
-import com.example.samsungproj.database.entity.UserInfoDao_Impl;
 import com.example.samsungproj.themes.Dinamika;
 import com.example.samsungproj.themes.Kinematika;
 
