@@ -3,6 +3,7 @@ package com.example.samsungproj;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,13 +12,16 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
 
 import com.example.samsungproj.database.entity.AppDatabase;
+import com.example.samsungproj.database.entity.data.ItemViewModel;
 import com.example.samsungproj.database.entity.data.UserInfoRepository;
 import com.example.samsungproj.database.entity.models.UserInfo;
+import com.example.samsungproj.databinding.FragmentHomeBinding;
 import com.example.samsungproj.themes.Dinamika;
 import com.example.samsungproj.themes.Kinematika;
 
@@ -29,6 +33,7 @@ public class ListFragment extends Fragment {
     private RecyclerView recyclerView;
     private Adapter adapter;
     private List<String> dataList;
+    private int MaxId;
 
 
     private UserInfoRepository userInfoRepository;
@@ -39,19 +44,27 @@ public class ListFragment extends Fragment {
     public void setOnItemClickListener(Adapter.OnItemClickListener listener) {
         adapter.setOnItemClickListener(listener);
     }
-
-    private class InsertAsyncTask extends AsyncTask<UserInfo, Void, Void> {
-        @Override
-        protected Void doInBackground(UserInfo... userInfo) {
-            // Получение экземпляра базы данных
-            AppDatabase db = Room.databaseBuilder(requireContext(), AppDatabase.class, "my-database").build();
-
-            // Вставка данных в базу данных
-            db.userInfoDao().insertUserInfo(userInfo[0]);
-
-            return null;
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if (userInfoRepository != null) {
+            MaxId = userInfoRepository.getMaxID();
         }
     }
+
+
+//    private class InsertAsyncTask extends AsyncTask<UserInfo, Void, Void> {
+//        @Override
+//        protected Void doInBackground(UserInfo... userInfo) {
+//            // Получение экземпляра базы данных
+//            AppDatabase db = Room.databaseBuilder(requireContext(), AppDatabase.class, "my-database").build();
+//
+//            // Вставка данных в базу данных
+//            db.userInfoDao().insertUserInfo(userInfo[0]);
+//
+//            return null;
+//        }
+//    }
 
 
     @Override
@@ -87,10 +100,12 @@ public class ListFragment extends Fragment {
             public void onItemClick(int position) {
 
                 String editTextUpdateDb = dataList.get(position);
-                String a = editTextUpdateDb.toString();
+                String text = editTextUpdateDb.toString();
                 int b = position;
-                UserInfo userInfo = new UserInfo(a, b,b);
+                MaxId++;
+                UserInfo userInfo = new UserInfo(text,MaxId ,MaxId);
 
+                Log.d("fsedfsdfsd", "Upd click "+text + " " + MaxId);
                 addUser(userInfo);
 
                 Intent intent = new Intent(getActivity(), Themes.class);

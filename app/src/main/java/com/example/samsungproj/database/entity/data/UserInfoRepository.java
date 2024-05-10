@@ -15,11 +15,12 @@ public class UserInfoRepository {
     private LiveData<List<UserInfo>> listLiveData;
     private List<UserInfo> userInfoList;
     private UserInfoDao userInfoDao;
+    private int MaxID;
 
     public UserInfoRepository(Application application) {
         UserInfoDatabase db = UserInfoDatabase.getDatabase(application);
         mUserInfoDAO = db.userInfoDao();
-        listLiveData = mUserInfoDAO.getAllUserInfosLiveData();
+        listLiveData = mUserInfoDAO.getLastRecordsLiveData();
 
         listLiveData.observeForever(new Observer<List<UserInfo>>() {
             @Override
@@ -51,6 +52,25 @@ public class UserInfoRepository {
         UserInfoDatabase.databaseWriteExecutor.execute(() -> {
             mUserInfoDAO.updateName(id, name);
         });
+    }
+
+    public List<UserInfo> getListUserInfo(){
+
+        UserInfoDatabase.databaseWriteExecutor.execute(() ->{
+
+            userInfoList =  mUserInfoDAO.getLastRecords();
+        });
+        return userInfoList;
+
+    }
+
+    public int getMaxID(){
+        UserInfoDatabase.databaseWriteExecutor.execute(() ->{
+
+            MaxID =  mUserInfoDAO.getMaxTopicId();
+        });
+        return MaxID;
+
     }
 
 

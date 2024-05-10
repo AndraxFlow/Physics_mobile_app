@@ -1,6 +1,5 @@
 package com.example.samsungproj;
 
-import android.os.AsyncTask;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -9,7 +8,6 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.room.Room;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -20,14 +18,12 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.samsungproj.database.entity.AppDatabase;
-import com.example.samsungproj.database.entity.models.ItemViewModel;
+import com.example.samsungproj.database.entity.data.ItemViewModel;
 import com.example.samsungproj.database.entity.models.UserInfo;
 import com.example.samsungproj.database.entity.data.UserInfoDao;
 import com.example.samsungproj.database.entity.data.UserInfoRepository;
 import com.example.samsungproj.databinding.FragmentHomeBinding;
-import com.example.samsungproj.databinding.HomeItemBinding;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class HomeFragment extends Fragment {
@@ -143,7 +139,7 @@ public class HomeFragment extends Fragment {
     }
 
     private void getUser() {
-        List<UserInfo> userInfoList =  userInfoRepository.getAllStationsList();
+        List<UserInfo> userInfoList =  userInfoRepository.getListUserInfo();
 
         Log.d("HF", "getUser: " + userInfoList.size());
         for (UserInfo userInfo : userInfoList) {

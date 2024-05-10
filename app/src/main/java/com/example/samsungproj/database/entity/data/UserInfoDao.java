@@ -38,4 +38,22 @@ public interface UserInfoDao {
 
     //@Query("UPDATE user_info  SET id= :id WHERE datetime= :name")
 
+//    @Query("SELECT * FROM user_info WHERE datetime IN (SELECT MAX(datetime) FROM user_info GROUP BY datetime) ORDER BY id DESC")
+//    List<UserInfo> getLastRecords();
+
+    @Query("SELECT MAX(id) AS id, datetime, topic_id, scroll_position " +
+                  "FROM user_info " +
+                  "GROUP BY datetime " +
+                  "ORDER BY topic_id DESC")
+    List<UserInfo> getLastRecords();
+
+    @Query("SELECT MAX(id) AS id, datetime, topic_id, scroll_position " +
+            "FROM user_info " +
+            "GROUP BY datetime " +
+            "ORDER BY topic_id DESC")
+    LiveData<List<UserInfo>> getLastRecordsLiveData();
+
+    @Query("SELECT topic_id FROM user_info ORDER BY topic_id DESC LIMIT 1")
+    int getMaxTopicId();
+
 }

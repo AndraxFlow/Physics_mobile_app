@@ -1,4 +1,4 @@
-package com.example.samsungproj.database.entity.models;
+package com.example.samsungproj.database.entity.data;
 
 
 import android.app.Application;
@@ -8,6 +8,7 @@ import androidx.lifecycle.LiveData;
 
 
 import com.example.samsungproj.database.entity.data.UserInfoRepository;
+import com.example.samsungproj.database.entity.models.UserInfo;
 
 import java.util.List;
 
