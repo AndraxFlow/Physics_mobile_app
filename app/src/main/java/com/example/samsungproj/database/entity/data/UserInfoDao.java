@@ -35,4 +35,7 @@ public interface UserInfoDao {
     @Query("UPDATE user_info  SET datetime= :name WHERE id= :id")
     void updateName(int id, String name);
 
+
+    //@Query("UPDATE user_info  SET id= :id WHERE datetime= :name")
+
 }

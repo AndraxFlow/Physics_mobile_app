@@ -6,6 +6,9 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
 
 import android.util.Log;
@@ -17,16 +20,29 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.samsungproj.database.entity.AppDatabase;
+import com.example.samsungproj.database.entity.models.ItemViewModel;
 import com.example.samsungproj.database.entity.models.UserInfo;
 import com.example.samsungproj.database.entity.data.UserInfoDao;
 import com.example.samsungproj.database.entity.data.UserInfoRepository;
+import com.example.samsungproj.databinding.FragmentHomeBinding;
+import com.example.samsungproj.databinding.HomeItemBinding;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class HomeFragment extends Fragment {
 
+
+
+
+    //private AdapterHome adapterHome;
+
+
+    private List<UserInfo> dataList;
+
     private Button button1;
     private Button button2;
+
 
     private Object applicationContext;
 
@@ -34,58 +50,24 @@ public class HomeFragment extends Fragment {
     private UserInfoDao userInfoDao;
     private UserInfoRepository userInfoRepository;
 
-    public HomeFragment() {
-        // Required empty public constructor
-    }
 
+    public FragmentHomeBinding binding;
+    private ItemViewModel mStationViewModel;
+
+    public ItemViewModel getStationViewModel() {
+        return mStationViewModel;
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        binding = FragmentHomeBinding.inflate(getLayoutInflater());
+        mStationViewModel = new ViewModelProvider(this).get(ItemViewModel.class);
+    }
+    public HomeFragment() {
+        // Required empty public constructor
     }
 
-//    @Override
-//    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-//        super.onViewCreated(view, savedInstanceState);
-//
-//        button1 = view.findViewById(R.id.button1);
-//        button2 = view.findViewById(R.id.button2);
-//
-//        // Получение экземпляра базы данных
-//        db = Room.databaseBuilder(requireContext(), AppDatabase.class, "my-database").build();
-//
-//        // Получение экземпляра DAO
-//        userInfoDao = db.userInfoDao();
-//
-//        // Выполнение операций с базой данных в фоновом потоке
-//        new DatabaseOperationTask().execute();
-//    }
-//
-//    private class DatabaseOperationTask extends AsyncTask<Void, Void, List<UserInfo>> {
-//
-//        @Override
-//        protected List<UserInfo> doInBackground(Void... voids) {
-//            // Получение элементов из базы данных
-//            return userInfoDao.getAllUserInfos();
-//        }
-//
-//        @Override
-//        protected void onPostExecute(List<UserInfo> userInfoList) {
-//            super.onPostExecute(userInfoList);
-//
-//            // Проверка, что в базе данных есть хотя бы два элемента
-//            if (userInfoList.size() >= 2) {
-//                UserInfo userInfo1 = userInfoList.get(0);
-//                UserInfo userInfo2 = userInfoList.get(1);
-//
-//                // Присвоение значений кнопкам
-//                button1.setText(String.valueOf(userInfo1.getId()));
-//                button2.setText(String.valueOf(userInfo2.getId()));
-//
-//            }
-//        }
-//    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -96,6 +78,25 @@ public class HomeFragment extends Fragment {
         Button getDb = (Button) view.findViewById(R.id.buttonGetDb);
         EditText editTextUpdateDb = (EditText) view.findViewById(R.id.editTextUpdateDb);
         EditText editTextId = (EditText) view.findViewById(R.id.editTextId);
+
+        RecyclerView rv_add_station = view.findViewById(R.id.recyclerView);
+        rv_add_station.setLayoutManager(new LinearLayoutManager(
+                getContext(),
+                RecyclerView.VERTICAL,
+                false
+        ));
+
+        AdapterHome allStationAdapter = new AdapterHome(new AdapterHome.StationDiff());
+        mStationViewModel.getAllWords().observe(getViewLifecycleOwner(), stationsList -> {
+            allStationAdapter.submitList(stationsList);
+        });
+
+        rv_add_station.setAdapter(allStationAdapter);
+
+
+
+        // Здесь вы можете добавить элементы в dataList
+
 
         editDb.setOnClickListener(new View.OnClickListener() {
             @Override

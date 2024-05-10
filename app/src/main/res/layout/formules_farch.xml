@@ -10,7 +10,7 @@
         android:id="@+id/backButton"
         android:layout_width="119dp"
         android:layout_height="wrap_content"
-        android:background="#80000000"
+        android:backgroundTint="#9ADC3366"
         android:text="Назад"
         android:textColor="#FFFFFF" />
 
@@ -26,6 +26,8 @@
         android:id="@+id/divideButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/ic_launcher_background"
+
         android:text="Вычислить" />
 
     <EditText

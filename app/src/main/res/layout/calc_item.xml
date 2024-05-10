@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#E11212">
+    android:background="@color/white">
 
 
 
@@ -12,7 +12,8 @@
             android:layout_width="match_parent"
             android:layout_height="206dp"
             android:layout_margin="3dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            tools:ignore="MissingConstraints">
 
             <ImageButton
                 android:id="@+id/imageButton"
@@ -20,7 +21,7 @@
                 android:layout_height="100dp"
                 android:layout_weight="1"
                 android:contextClickable="true"
-                android:src="@android:drawable/btn_star" />
+                android:src="@drawable/background_splashscreen" />
 
             <Button
                 android:id="@+id/button1"
@@ -28,7 +29,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
-
+                android:backgroundTint="@color/ic_launcher_background"
                 android:layout_margin="3dp"
                 android:shadowColor="@color/black"
                 android:text="Ссылка на новую страницу"

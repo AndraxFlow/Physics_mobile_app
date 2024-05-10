@@ -9,7 +9,6 @@ public class UserInfo {
     @PrimaryKey(autoGenerate = true)
     public int id;
     @ColumnInfo(name = "datetime")
-
     public String datetime;
     @ColumnInfo(name = "topic_id")
     public int topicId;

@@ -10,7 +10,7 @@
         android:id="@+id/backButton"
         android:layout_width="105dp"
         android:layout_height="wrap_content"
-        android:background="#80000000"
+        android:backgroundTint="#95DF2E63"
         android:text="Назад"
         android:textColor="#FFFFFF" />
 
@@ -33,7 +33,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Вычислить"
-        android:visibility="gone"/>
+        android:backgroundTint="@color/ic_launcher_background"
+        android:visibility="visible"/>
 
     <EditText
         android:id="@+id/numberfEditText"

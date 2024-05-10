@@ -1,80 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".HomeFragment"
-    android:background="@color/material_dynamic_tertiary40">
+    android:background="#77EFDEDE"
+    android:backgroundTint="#EFDADA"
+    android:backgroundTintMode="src_in"
+    tools:context=".HomeFragment">
 
     <!-- TODO: Update blank fragment layout -->
 
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
-
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="232dp"
-        android:layout_height="307dp"
-        android:text="Открыть новое окно 1"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.329"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.249" />
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="358dp"
-        android:layout_height="78dp"
-        android:text="Открыть новое окно 1"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.329"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.249" />
 
     <Button
         android:id="@+id/buttonAddDb"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Add"
-
         android:layout_gravity="center"
-        android:layout_marginTop="200dp"/>
+        android:layout_marginTop="280dp"
+        android:backgroundTint="@color/ic_launcher_background"
+        android:text="Add" />
 
     <EditText
         android:id="@+id/editTextUpdateDb"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="text"
-        android:text="ввеите текст"
         android:layout_gravity="center"
-        android:layout_marginTop="100dp"/>
+        android:layout_marginTop="180dp"
+        android:ems="10"
+        android:hint="введите текст"
+        android:inputType="text" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="230dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="00dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        >
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
 
     <EditText
         android:id="@+id/editTextId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="130dp"
         android:ems="10"
         android:inputType="numberDecimal"
-        android:text="1"
-        android:layout_gravity="center"
-        android:layout_marginTop="50dp"/>
+        android:text="1" />
 
     <Button
         android:id="@+id/buttonGetDb"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="get"
-
         android:layout_gravity="center"
-        android:layout_marginTop="150dp"/>
+        android:layout_marginTop="230dp"
+        android:backgroundTint="@color/ic_launcher_background"
+        android:text="get" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:text="Последние открытые разделы:"
+        android:textSize="30dp"
+        android:textStyle="bold"
+
+        />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="232dp"
+        android:layout_height="74dp"
+        android:layout_gravity="center_horizontal"
+        android:backgroundTint="#CE2759"
+        android:text="Открыть новое окно 1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.329"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.249" />
 
 </FrameLayout>

@@ -6,13 +6,17 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
 
 import com.example.samsungproj.database.entity.AppDatabase;
+import com.example.samsungproj.database.entity.data.UserInfoRepository;
 import com.example.samsungproj.database.entity.models.UserInfo;
 import com.example.samsungproj.themes.Dinamika;
 import com.example.samsungproj.themes.Kinematika;
@@ -25,6 +29,9 @@ public class ListFragment extends Fragment {
     private RecyclerView recyclerView;
     private Adapter adapter;
     private List<String> dataList;
+
+
+    private UserInfoRepository userInfoRepository;
 
     public ListFragment() {
         // Required empty public constructor
@@ -48,6 +55,18 @@ public class ListFragment extends Fragment {
 
 
     @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        userInfoRepository = new UserInfoRepository(requireActivity().getApplication());
+
+    }
+    private void addUser(UserInfo userInfo) { // - добавить условие на добавление или замену
+        userInfoRepository.insert(userInfo);
+        //userInfoRepository.update(userInfo.getId(), userInfo.getDatetime());
+        Toast.makeText(getContext(), "", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_list, container, false);
@@ -67,25 +86,20 @@ public class ListFragment extends Fragment {
             @Override
             public void onItemClick(int position) {
 
-                // Создание объекта  с идентификатором кнопки
-                UserInfo userInfo = new UserInfo("smtDateTime", 1,1);
-                userInfo.setId(position); // position - идентификатор нажатой кнопки
+                String editTextUpdateDb = dataList.get(position);
+                String a = editTextUpdateDb.toString();
+                int b = position;
+                UserInfo userInfo = new UserInfo(a, b,b);
 
-                // Выполнение операции в фоновом потоке
-                new InsertAsyncTask().execute(userInfo);
+                addUser(userInfo);
 
-                // Остальной код
-
-                // Действия при нажатии на элемент списка
-                // Например, открытие экрана редактирования челленджа
-                Intent intent;// = new Intent(getActivity(), Themes.class);
-                //intent.putExtra("ключ", dataList.get(position));
+                Intent intent = new Intent(getActivity(), Themes.class);
+                intent.putExtra("ключ", dataList.get(position));
 
                 //String receivedValue = getIntent().getStringExtra("ключ");
                 switch (position){
                     case 0:
                         intent =  new Intent(getActivity(), Kinematika.class);
-
                         break;
                     case 1:
                         intent =  new Intent(getActivity(), Dinamika.class);
@@ -94,7 +108,6 @@ public class ListFragment extends Fragment {
                         intent =  new Intent(getActivity(), Dinamika.class);
                         break;
                 }
-
 
                 startActivity(intent);
 

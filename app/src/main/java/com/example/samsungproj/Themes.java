@@ -24,7 +24,6 @@ public class Themes extends AppCompatActivity {
             case "Кинематика":
                 Toast.makeText(this, "0", Toast.LENGTH_SHORT).show();
                  a = 1;
-
             break;
 
             case "Динамика" :

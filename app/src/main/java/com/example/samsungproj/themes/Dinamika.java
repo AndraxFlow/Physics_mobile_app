@@ -23,7 +23,7 @@ public class Dinamika extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_kinematika);
+        setContentView(R.layout.activity_dinamika);
         //Toast.makeText(this, "0", Toast.LENGTH_SHORT).show();
         backButton = findViewById(R.id.backButton); // Initialize backButton
 
