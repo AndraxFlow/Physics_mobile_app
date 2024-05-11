@@ -24,6 +24,7 @@ import com.example.samsungproj.database.entity.models.UserInfo;
 import com.example.samsungproj.databinding.FragmentHomeBinding;
 import com.example.samsungproj.themes.Dinamika;
 import com.example.samsungproj.themes.Kinematika;
+import com.example.samsungproj.themes.Mkt;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -91,6 +92,7 @@ public class ListFragment extends Fragment {
         // Здесь вы можете добавить элементы в dataList
         dataList.add("Кинематика");
         dataList.add("Динамика");
+        dataList.add("Молекулярно кинетическая теория");
         adapter = new Adapter(dataList);
         recyclerView.setAdapter(adapter);
 
@@ -118,6 +120,9 @@ public class ListFragment extends Fragment {
                         break;
                     case 1:
                         intent =  new Intent(getActivity(), Dinamika.class);
+                        break;
+                    case 2:
+                        intent =  new Intent(getActivity(), Mkt.class);
                         break;
                     default:
                         intent =  new Intent(getActivity(), Dinamika.class);

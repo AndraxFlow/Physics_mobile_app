@@ -7,16 +7,24 @@
     android:orientation="vertical"
     android:padding="16dp">
 
-    <TextView
+    <Button
         android:id="@+id/station"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="2dp"
-        android:layout_marginEnd="8dp"
+        style="@style/Widget.Material3.Button"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginBottom="4dp"
+        android:backgroundTint="@color/ic_launcher_background"
+        android:clickable="false"
+        android:ellipsize="middle"
+        android:insetLeft="0dp"
+        android:insetTop="0dp"
+        android:insetRight="0dp"
+        android:insetBottom="0dp"
         android:text="Name"
-        app:layout_constraintHorizontal_bias="0.0"
+        android:textSize="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
 

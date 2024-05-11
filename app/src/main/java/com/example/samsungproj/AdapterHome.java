@@ -120,7 +120,7 @@ public class AdapterHome extends ListAdapter<UserInfo, AdapterHome.UserViewHolde
         }
         submitList(filteredList);
     }*/
-    /*public void updateUserInfosList(List<UserInfo> userInfosList) {
+    public void updateUserInfosList(List<UserInfo> userInfosList) {
         submitList(userInfosList);
-    }*/
+    }
 }

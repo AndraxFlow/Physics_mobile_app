@@ -18,9 +18,7 @@
         <activity
             android:name=".FormulesCalc.A"
             android:exported="false" />
-        <activity
-            android:name=".FormulesCalc.A"
-            android:exported="false" />
+
         <activity
             android:name=".FormulesCalc.SorX"
             android:exported="false" />
@@ -29,6 +27,9 @@
             android:exported="false" />
         <activity
             android:name=".themes.Kinematika"
+            android:exported="false" />
+        <activity
+            android:name=".themes.Mkt"
             android:exported="false" />
         <activity
             android:name=".Themes"
