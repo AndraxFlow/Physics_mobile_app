@@ -3,17 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="60dp"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="5dp">
 
     <Button
         android:id="@+id/station"
         style="@style/Widget.Material3.Button"
         android:layout_width="wrap_content"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="4dp"
-        android:backgroundTint="@color/ic_launcher_background"
+        android:backgroundTint="#0EA30E"
         android:clickable="false"
         android:ellipsize="middle"
         android:insetLeft="0dp"
@@ -21,12 +21,14 @@
         android:insetRight="0dp"
         android:insetBottom="0dp"
         android:text="Name"
-        android:textSize="16dp"
+        android:textSize="21dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

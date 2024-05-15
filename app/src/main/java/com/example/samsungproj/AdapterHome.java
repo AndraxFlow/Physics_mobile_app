@@ -1,12 +1,10 @@
 package com.example.samsungproj;
 
-import static android.app.PendingIntent.getActivity;
 
 import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Switch;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.DiffUtil;
@@ -14,15 +12,10 @@ import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
 
-import com.example.samsungproj.AdapterClass;
-import com.example.samsungproj.R;
 import com.example.samsungproj.database.entity.models.UserInfo;
 import com.example.samsungproj.databinding.HomeItemBinding;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Objects;
 
 
 public class AdapterHome extends ListAdapter<UserInfo, AdapterHome.UserViewHolder> {
@@ -64,11 +57,6 @@ public class AdapterHome extends ListAdapter<UserInfo, AdapterHome.UserViewHolde
 
     }
 
-
-
-
-
-
     public class UserViewHolder extends RecyclerView.ViewHolder {
         private HomeItemBinding addStationItemBinding;
 
@@ -88,8 +76,6 @@ public class AdapterHome extends ListAdapter<UserInfo, AdapterHome.UserViewHolde
             addStationItemBinding.station.setText(userInfo.getDatetime());  // добавление времени
         }
     }
-
-
     public static class StationDiff extends DiffUtil.ItemCallback<UserInfo> {
 
         @Override
@@ -103,23 +89,7 @@ public class AdapterHome extends ListAdapter<UserInfo, AdapterHome.UserViewHolde
         }
     }
 
-    /*public void filterByDatetime(String text, List<UserInfo> userInfos) { // - фильтруешь если надо
-        List<UserInfo> filteredList = new ArrayList<>();
 
-        if (text.isEmpty()) {
-            filteredList.addAll(userInfos);
-        } else {
-            String searchText = text.toLowerCase().trim(); // Приводим текст к нижнему регистру и удаляем пробелы в начале и конце
-            for (UserInfo userInfo : getCurrentList()) {
-                if (String.valueOf(userInfo.getId()).contains(searchText)) {
-                    filteredList.add(userInfo);
-                } else if (userInfo.getName().toLowerCase().startsWith(searchText)) {
-                    filteredList.add(userInfo);
-                }
-            }
-        }
-        submitList(filteredList);
-    }*/
     public void updateUserInfosList(List<UserInfo> userInfosList) {
         submitList(userInfosList);
     }

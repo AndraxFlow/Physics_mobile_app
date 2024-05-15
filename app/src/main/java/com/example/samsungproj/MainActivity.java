@@ -1,5 +1,6 @@
 package com.example.samsungproj;
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -27,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        final MediaPlayer mediaPlayer1 = MediaPlayer.create(this, R.raw.a3);
 
         homeFragment = new HomeFragment();
         listFragment = new ListFragment();
@@ -57,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
                     .hide(activeFragment)
                     .show(selectedFragment)
                     .commit();
-
+            mediaPlayer1.start();
             activeFragment = selectedFragment;
 
             return true;

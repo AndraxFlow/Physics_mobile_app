@@ -3,6 +3,7 @@ package com.example.samsungproj;
 import static android.content.Intent.getIntent;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,6 +32,8 @@ public class CalcFragment extends Fragment {
     private AdapterClass adapter;
     private List<String> dataList;
 
+    int[] programImages = {R.drawable.baseline_5g_24,R.drawable.baseline_ac_unit_24, R.drawable.baseline_volume_off_24};
+
     public CalcFragment() {
         // Required empty public constructor
     }
@@ -45,13 +48,14 @@ public class CalcFragment extends Fragment {
 
         recyclerView = view.findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new GridLayoutManager(getActivity(),2));
+        final MediaPlayer mediaPlayer1 = MediaPlayer.create(getContext(), R.raw.a2);
 
         dataList = new ArrayList<String>();
         // Здесь вы можете добавить элементы в dataList
         dataList.add("СИЛА АРХИМЕДА");
         dataList.add("РАССТОЯНИЕ И ПОЛОЖЕНИЕ ТЕЛА");
         dataList.add("УСКОРЕНИЕ");
-        adapter = new AdapterClass(dataList, getActivity());
+        adapter = new AdapterClass(dataList, getActivity(), programImages);
         recyclerView.setAdapter(adapter);
         setOnItemClickListener(new AdapterClass.OnItemClickListener() {
             @Override
@@ -65,12 +69,15 @@ public class CalcFragment extends Fragment {
                 //String receivedValue = getIntent().getStringExtra("ключ");
                 switch (position){
                     case 0:
+                        mediaPlayer1.start();
                         intent =  new Intent(getActivity(), FArch.class);
                         break;
                     case 1:
+                        mediaPlayer1.start();
                         intent =  new Intent(getActivity(), SorX.class);
                         break;
                     case 2:
+                        mediaPlayer1.start();
                         intent =  new Intent(getActivity(), A.class);
                         break;
                     default:

@@ -29,13 +29,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
-                android:backgroundTint="@color/ic_launcher_background"
+                android:backgroundTint="@android:color/holo_green_dark"
                 android:layout_margin="3dp"
                 android:shadowColor="@color/black"
                 android:text="Ссылка на новую страницу"
                 app:icon="@color/white"
                 app:iconPadding="20dp"
-                app:rippleColor="#472232" />
+                app:rippleColor="#234722" />
 
         </LinearLayout>
 

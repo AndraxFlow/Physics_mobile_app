@@ -5,21 +5,39 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#77EFDEDE"
-    android:backgroundTint="#EFDADA"
+    android:backgroundTint="#D1F6B0"
     android:backgroundTintMode="src_in"
     tools:context=".HomeFragment">
 
     <!-- TODO: Update blank fragment layout -->
 
+    <ImageView
+        android:id="@+id/stop_sound"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:background="@drawable/baseline_volume_up_24"
+        />
 
+    <ImageView
+        android:id="@+id/play_sound"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:background="@drawable/baseline_volume_off_24"
+        />
     <Button
         android:id="@+id/buttonAddDb"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="280dp"
-        android:backgroundTint="@color/ic_launcher_background"
-        android:text="Add" />
+        android:backgroundTint="@android:color/holo_green_dark"
+        android:text="Add"
+        android:visibility="gone"
+        />
 
     <EditText
         android:id="@+id/editTextUpdateDb"
@@ -29,13 +47,15 @@
         android:layout_marginTop="180dp"
         android:ems="10"
         android:hint="введите текст"
+        android:visibility="gone"
+
         android:inputType="text" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="230dp"
         android:layout_gravity="center"
-        android:layout_marginBottom="00dp"
+        android:layout_marginBottom="40dp"
         android:gravity="center"
         android:orientation="vertical"
         >
@@ -43,7 +63,8 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            />
 
     </LinearLayout>
 
@@ -55,6 +76,8 @@
         android:layout_marginTop="130dp"
         android:ems="10"
         android:inputType="numberDecimal"
+        android:visibility="gone"
+
         android:text="1" />
 
     <Button
@@ -63,8 +86,10 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="230dp"
-        android:backgroundTint="@color/ic_launcher_background"
-        android:text="get" />
+        android:backgroundTint="@android:color/holo_green_dark"
+        android:text="get"
+        android:visibility="gone"
+        />
 
 
     <TextView
@@ -73,6 +98,7 @@
         android:layout_marginTop="70dp"
         android:text="Последние открытые теоретические разделы:"
         android:textSize="30dp"
+        android:background="#DFD0D0"
         android:textStyle="bold"
 
         />
@@ -82,13 +108,22 @@
         android:layout_width="232dp"
         android:layout_height="74dp"
         android:layout_gravity="center_horizontal"
-        android:backgroundTint="#CE2759"
+        android:backgroundTint="@android:color/holo_green_dark"
         android:text="Открыть новое окно 1"
+        android:visibility="gone"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.329"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.249" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="248dp"
+        android:layout_gravity="bottom"
+        tools:src="@tools:sample/backgrounds/scenic" />
 
 </FrameLayout>

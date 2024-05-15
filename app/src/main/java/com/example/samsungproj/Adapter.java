@@ -4,6 +4,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -16,9 +17,13 @@ import java.util.List;
 public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     private List<String> itemList;
     private OnItemClickListener listener;
+    int[] images;
 
-    public Adapter(List<String> itemList) {
+
+    public Adapter(List<String> itemList, int[] images) {
         this.itemList = itemList;
+        this.images = images;
+
     }
 
     public interface OnItemClickListener {
@@ -50,6 +55,8 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public TextView textView;
         public Button button;
+        public ImageButton imageButton;
+
 
         public ViewHolder(View itemView, final OnItemClickListener listener) {
             super(itemView);

@@ -1,6 +1,7 @@
 package com.example.samsungproj;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -35,6 +36,7 @@ public class ListFragment extends Fragment {
     private Adapter adapter;
     private List<String> dataList;
     private int MaxId;
+
 
 
     private UserInfoRepository userInfoRepository;
@@ -84,7 +86,8 @@ public class ListFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_list, container, false);
-
+        int[] programImages = {R.drawable.baseline_5g_24,R.drawable.baseline_ac_unit_24,
+                R.drawable.baseline_volume_off_24};
         recyclerView = view.findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
@@ -93,8 +96,10 @@ public class ListFragment extends Fragment {
         dataList.add("Кинематика");
         dataList.add("Динамика");
         dataList.add("Молекулярно кинетическая теория");
-        adapter = new Adapter(dataList);
+        adapter = new Adapter(dataList, programImages);
         recyclerView.setAdapter(adapter);
+
+        final MediaPlayer mediaPlayer1 = MediaPlayer.create(getContext(), R.raw.a1);
 
 
         setOnItemClickListener(new Adapter.OnItemClickListener() {
@@ -116,12 +121,15 @@ public class ListFragment extends Fragment {
                 //String receivedValue = getIntent().getStringExtra("ключ");
                 switch (position){
                     case 0:
+                        mediaPlayer1.start();
                         intent =  new Intent(getActivity(), Kinematika.class);
                         break;
                     case 1:
+                        mediaPlayer1.start();
                         intent =  new Intent(getActivity(), Dinamika.class);
                         break;
                     case 2:
+                        mediaPlayer1.start();
                         intent =  new Intent(getActivity(), Mkt.class);
                         break;
                     default:
