@@ -1,5 +1,6 @@
 package com.example.samsungproj.FormulesCalc;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
         import android.view.View;
         import android.widget.Button;
@@ -30,6 +31,8 @@ public class FArch extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.formules_farch);
         numberfEditText = findViewById(R.id.numberfEditText);
+        final MediaPlayer mediaPlayer1 = MediaPlayer.create(this, R.raw.a2);
+
         numbergEditText = findViewById(R.id.numbergEditText);
         numberpEditText = findViewById(R.id.numberpEditText);
         numbervEditText = findViewById(R.id.numbervEditText);
@@ -41,6 +44,7 @@ public class FArch extends AppCompatActivity {
         ansButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                mediaPlayer1.start();
                 calculateResult('*');
             }
         });
@@ -48,6 +52,7 @@ public class FArch extends AppCompatActivity {
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                mediaPlayer1.start();
                 onBackPressed(); // Go back to the previous page
             }
         });

@@ -1,6 +1,7 @@
 package com.example.samsungproj.FormulesCalc;
 import android.app.Person;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -59,6 +60,7 @@ public class A extends AppCompatActivity implements AdapterView.OnItemSelectedLi
         numbertEditText = findViewById(R.id.numbertEditText);
         numbervEditText = findViewById(R.id.numbervEditText);
         numbermEditText = findViewById(R.id.numbermEditText);
+        final MediaPlayer mediaPlayer1 = MediaPlayer.create(this, R.raw.a2);
 
         ansButton = findViewById(R.id.divideButton);
         resultTextView = findViewById(R.id.resultTextView);
@@ -84,6 +86,7 @@ public class A extends AppCompatActivity implements AdapterView.OnItemSelectedLi
         ansButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                mediaPlayer1.start();
                 calculateResult('s');
             }
         });
@@ -91,6 +94,7 @@ public class A extends AppCompatActivity implements AdapterView.OnItemSelectedLi
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                mediaPlayer1.start();
                 onBackPressed(); // Go back to the previous page
             }
         });

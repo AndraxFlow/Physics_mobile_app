@@ -1,6 +1,7 @@
 package com.example.samsungproj.FormulesCalc;
 import android.app.Person;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -56,6 +57,7 @@ public class SorX extends AppCompatActivity implements AdapterView.OnItemSelecte
         numbergEditText = findViewById(R.id.numbergEditText);
         numberpEditText = findViewById(R.id.numberpEditText);
         numbervEditText = findViewById(R.id.numbervEditText);
+        final MediaPlayer mediaPlayer1 = MediaPlayer.create(this, R.raw.a2);
 
         ansButton = findViewById(R.id.divideButton);
         resultTextView = findViewById(R.id.resultTextView);
@@ -81,6 +83,7 @@ public class SorX extends AppCompatActivity implements AdapterView.OnItemSelecte
         ansButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                mediaPlayer1.start();
                 calculateResult('s');
             }
         });
@@ -88,6 +91,7 @@ public class SorX extends AppCompatActivity implements AdapterView.OnItemSelecte
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                mediaPlayer1.start();
                 onBackPressed(); // Go back to the previous page
             }
         });

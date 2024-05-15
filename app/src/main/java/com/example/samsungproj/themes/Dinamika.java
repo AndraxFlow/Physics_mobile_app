@@ -2,6 +2,7 @@ package com.example.samsungproj.themes;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.Html;
@@ -24,6 +25,7 @@ public class Dinamika extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dinamika);
+        final MediaPlayer mediaPlayer1 = MediaPlayer.create(this, R.raw.a1);
         //Toast.makeText(this, "0", Toast.LENGTH_SHORT).show();
         backButton = findViewById(R.id.backButton); // Initialize backButton
 
@@ -36,6 +38,7 @@ public class Dinamika extends AppCompatActivity {
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                mediaPlayer1.start();
                 onBackPressed(); // Go back to the previous page
             }
         });

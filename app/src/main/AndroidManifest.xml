@@ -12,9 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SamsungProj"
         tools:targetApi="31">
-        <activity
-            android:name=".News"
-            android:exported="false" />
+
         <activity
             android:name=".FormulesCalc.A"
             android:exported="false" />

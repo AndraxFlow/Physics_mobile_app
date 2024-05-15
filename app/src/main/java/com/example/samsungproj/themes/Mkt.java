@@ -2,6 +2,7 @@ package com.example.samsungproj.themes;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.Html;
@@ -26,6 +27,7 @@ public class Mkt extends AppCompatActivity {
         setContentView(R.layout.activity_mkt);
         //Toast.makeText(this, "0", Toast.LENGTH_SHORT).show();
         backButton = findViewById(R.id.backButton); // Initialize backButton
+        final MediaPlayer mediaPlayer1 = MediaPlayer.create(this, R.raw.a1);
 
         // init webView
         webView = (WebView) findViewById(R.id.simpleWebView);
@@ -36,6 +38,7 @@ public class Mkt extends AppCompatActivity {
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                mediaPlayer1.start();
                 onBackPressed(); // Go back to the previous page
             }
         });

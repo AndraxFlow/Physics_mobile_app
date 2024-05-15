@@ -63,8 +63,8 @@ public class CalcFragment extends Fragment {
                 // Действия при нажатии на элемент списка
                 // Например, открытие экрана редактирования челленджа
 
-                Intent intent;// = new Intent(getActivity(), Themes.class);
-                //intent.putExtra("ключ", dataList.get(position));
+                Intent intent = new Intent(getActivity(), Themes.class);
+                intent.putExtra("ключ", dataList.get(position));
 
                 //String receivedValue = getIntent().getStringExtra("ключ");
                 switch (position){

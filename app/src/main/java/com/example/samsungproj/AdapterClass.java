@@ -112,7 +112,9 @@ public class AdapterClass extends RecyclerView.Adapter<AdapterClass.ViewHolder> 
             //textView = itemView.findViewById(R.id.textView);
             button = itemView.findViewById(R.id.button1);
             imageButton = itemView.findViewById(R.id.imageButton);
+
             itemView.setOnClickListener(new View.OnClickListener() {
+
                 @Override
                 public void onClick(View v) {
                     if (listener != null) {
