@@ -381,6 +381,7 @@ public class SorX extends AppCompatActivity implements AdapterView.OnItemSelecte
                 numberfEditText.setHint("Введите x (м)");
                 numbervEditText.setVisibility(View.VISIBLE);
                 numberx0EditText.setVisibility(View.VISIBLE);
+                numbergEditText.setVisibility(View.VISIBLE);
                 numberx0EditText.setHint("Введите x0 (м)");
                 numbervEditText.setHint("Введите v0 (м/с)");
                 numbergEditText.setHint("Введите a (м/(с^2))");
