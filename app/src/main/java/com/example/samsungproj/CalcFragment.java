@@ -32,8 +32,9 @@ public class CalcFragment extends Fragment {
     private AdapterClass adapter;
     private List<String> dataList;
 
-    int[] programImages = {R.drawable.baseline_5g_24,R.drawable.baseline_ac_unit_24, R.drawable.baseline_volume_off_24};
+    int[] programImages = {R.drawable.icons8___48, R.drawable.icons8__64, R.drawable.icons8_representation_of_gravity_falls_over_incline_plane_48};
 
+    String[] names = {"СИЛА АРХИМЕДА","РАССТОЯНИЕ И ПОЛОЖЕНИЕ ТЕЛА","УСКОРЕНИЕ"};
     public CalcFragment() {
         // Required empty public constructor
     }
@@ -55,7 +56,7 @@ public class CalcFragment extends Fragment {
         dataList.add("СИЛА АРХИМЕДА");
         dataList.add("РАССТОЯНИЕ И ПОЛОЖЕНИЕ ТЕЛА");
         dataList.add("УСКОРЕНИЕ");
-        adapter = new AdapterClass(dataList, getActivity(), programImages);
+        adapter = new AdapterClass(dataList, getActivity(), programImages, names);
         recyclerView.setAdapter(adapter);
         setOnItemClickListener(new AdapterClass.OnItemClickListener() {
             @Override

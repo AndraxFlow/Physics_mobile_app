@@ -30,15 +30,17 @@ import java.util.HashMap;
 import java.util.List;
 
 public class AdapterClass extends RecyclerView.Adapter<AdapterClass.ViewHolder> {
-    private List<String> itemList;
+    private static List<String> itemList;
     Context context;
     private OnItemClickListener listener;
     int[] images;
+    String[] names;
 
-    public AdapterClass(List<String> itemList, Context context, int[] images) {
+    public AdapterClass(List<String> itemList, Context context, int[] images, String[] names) {
         this.itemList = itemList;
         this.context = context;
         this.images = images;
+        this.names = names;
     }
 
     public interface OnItemClickListener {
@@ -63,10 +65,10 @@ public class AdapterClass extends RecyclerView.Adapter<AdapterClass.ViewHolder> 
     public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
         String item = itemList.get(position);
         holder.imageButton.setImageResource(images[position]);
+        holder.button.setText(names[position]);
         final MediaPlayer mediaPlayer1 = MediaPlayer.create(context, R.raw.a2);
 
         Button button = holder.button.findViewById(R.id.button1);
-
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -105,9 +107,12 @@ public class AdapterClass extends RecyclerView.Adapter<AdapterClass.ViewHolder> 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public Button button;
         public ImageButton imageButton;
+        public int position; // добавленное поле position
+
 
         public ViewHolder(View itemView, final OnItemClickListener listener) {
             super(itemView);
+            this.position = position; // сохранение значения position
 
             //textView = itemView.findViewById(R.id.textView);
             button = itemView.findViewById(R.id.button1);
@@ -134,7 +139,7 @@ public class AdapterClass extends RecyclerView.Adapter<AdapterClass.ViewHolder> 
         }
         public void bind(String item) {
             // Дополнительная логика привязки данных, если необходимо
-            button.setText(String.valueOf(item));
+            button.setText(itemList.get(position));
         }
     }
 }

@@ -98,7 +98,7 @@
         android:layout_marginTop="70dp"
         android:text="Последние открытые теоретические разделы:"
         android:textSize="30dp"
-        android:background="#DFD0D0"
+        android:background="#D1F6B0"
         android:textStyle="bold"
 
         />
