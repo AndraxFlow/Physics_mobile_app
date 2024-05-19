@@ -1,10 +1,6 @@
 package com.example.samsungproj.FormulesCalc;
-import android.app.Person;
-import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -12,39 +8,19 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
-
-
 import com.example.samsungproj.R;
 
-
-import java.util.Collection;
-import java.util.List;
-import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.TimeoutException;
-
 public class SorX extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
-
-
-
     private EditText numberfEditText;
     private EditText numbergEditText;
     private EditText numberpEditText;
     private EditText numbervEditText;
     private Spinner spinner;
     private EditText numberx0EditText;
-
     private Button ansButton;
     private TextView resultTextView;
-    private Button backButton; // Add backButton declaration
-
+    private Button backButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,28 +34,18 @@ public class SorX extends AppCompatActivity implements AdapterView.OnItemSelecte
         numberpEditText = findViewById(R.id.numberpEditText);
         numbervEditText = findViewById(R.id.numbervEditText);
         final MediaPlayer mediaPlayer1 = MediaPlayer.create(this, R.raw.a2);
-
         ansButton = findViewById(R.id.divideButton);
         resultTextView = findViewById(R.id.resultTextView);
-        backButton = findViewById(R.id.backButton); // Initialize backButton
-
-
-
-
+        backButton = findViewById(R.id.backButton);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
                 this,
                 R.array.choise,
                 android.R.layout.simple_spinner_item
         );
-
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
         Spinner spinner = (Spinner) findViewById(R.id.spinner);
         spinner.setOnItemSelectedListener(this);
-
-
-
-
         ansButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -92,10 +58,9 @@ public class SorX extends AppCompatActivity implements AdapterView.OnItemSelecte
             @Override
             public void onClick(View v) {
                 mediaPlayer1.start();
-                onBackPressed(); // Go back to the previous page
+                onBackPressed();
             }
         });
-
     }
 
     private void calculateResult(char operator) {
@@ -142,7 +107,6 @@ public class SorX extends AppCompatActivity implements AdapterView.OnItemSelecte
         double result = 0;
         double result1;
         double result2;
-
         switch (operator) {
             case 's':
                 if (((numberp == 0.000000000001) && (numberf == 0.000000000001)) ||
@@ -321,8 +285,6 @@ public class SorX extends AppCompatActivity implements AdapterView.OnItemSelecte
                 }
                 break;
         }
-
-
     }
 
     @Override
@@ -336,11 +298,6 @@ public class SorX extends AppCompatActivity implements AdapterView.OnItemSelecte
         ansButton = findViewById(R.id.divideButton);
         resultTextView = findViewById(R.id.resultTextView);
         ansButton.setVisibility(View.GONE);
-
-
-
-
-
 
         switch (position) {
             case 0:
@@ -441,16 +398,10 @@ public class SorX extends AppCompatActivity implements AdapterView.OnItemSelecte
 
                 break;
         }
-
     }
 
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
-
     }
-
-
-
-
 }
 

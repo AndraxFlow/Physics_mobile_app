@@ -38,10 +38,6 @@ public class Plans {
         this.topicId = topicId;
     }
 
-
-
-
-
     public Plans(String datetime, int topicId) {
         this.datetime = datetime;
         this.topicId = topicId;

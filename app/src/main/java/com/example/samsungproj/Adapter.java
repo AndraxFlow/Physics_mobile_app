@@ -10,15 +10,12 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.samsungproj.R;
-
 import java.util.List;
 
 public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     private List<String> itemList;
     private OnItemClickListener listener;
     int[] images;
-
 
     public Adapter(List<String> itemList, int[] images) {
         this.itemList = itemList;
@@ -57,7 +54,6 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
         public Button button;
         public ImageButton imageButton;
 
-
         public ViewHolder(View itemView, final OnItemClickListener listener) {
             super(itemView);
 
@@ -76,9 +72,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
                 }
             });
         }
-
         public void bind(String item) {
-
             // Дополнительная логика привязки данных, если необходимо
             button.setText(String.valueOf(item));
         }

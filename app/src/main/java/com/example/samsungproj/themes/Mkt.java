@@ -3,21 +3,15 @@ package com.example.samsungproj.themes;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.media.MediaPlayer;
-import android.os.Build;
 import android.os.Bundle;
-import android.text.Html;
 import android.view.View;
 import android.webkit.WebView;
 import android.widget.Button;
-import android.widget.TextView;
-import android.widget.Toast;
-
 import com.example.samsungproj.R;
 
 public class Mkt extends AppCompatActivity {
 
-
-    private Button backButton; // Add backButton declaration
+    private Button backButton;
     WebView webView;
 
     public String fileName = "mkt.html";
@@ -25,10 +19,8 @@ public class Mkt extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mkt);
-        //Toast.makeText(this, "0", Toast.LENGTH_SHORT).show();
-        backButton = findViewById(R.id.backButton); // Initialize backButton
+        backButton = findViewById(R.id.backButton);
         final MediaPlayer mediaPlayer1 = MediaPlayer.create(this, R.raw.a1);
-
         // init webView
         webView = (WebView) findViewById(R.id.simpleWebView);
         // displaying content in WebView from html file that stored in assets folder
@@ -39,7 +31,7 @@ public class Mkt extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 mediaPlayer1.start();
-                onBackPressed(); // Go back to the previous page
+                onBackPressed();
             }
         });
     }

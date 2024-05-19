@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".themes.Dinamika">
 
-
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
@@ -50,14 +49,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/toolbar">
 
-        <!--<TextView
-        android:id="@+id/textView2"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="136dp"
-        android:autoSizeTextType="uniform"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        />-->
         <WebView
             android:id="@+id/simpleWebView"
             android:layout_width="wrap_content"

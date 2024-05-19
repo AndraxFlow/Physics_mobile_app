@@ -1,6 +1,5 @@
 package com.example.samsungproj;
 
-import static android.app.PendingIntent.getActivity;
 
 
 
@@ -13,8 +12,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -23,10 +20,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.samsungproj.FormulesCalc.A;
 import com.example.samsungproj.FormulesCalc.FArch;
 import com.example.samsungproj.FormulesCalc.SorX;
-import com.example.samsungproj.R;
 import com.example.samsungproj.themes.Dinamika;
 
-import java.util.HashMap;
 import java.util.List;
 
 public class AdapterClass extends RecyclerView.Adapter<AdapterClass.ViewHolder> {
@@ -57,9 +52,6 @@ public class AdapterClass extends RecyclerView.Adapter<AdapterClass.ViewHolder> 
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.calc_item, parent, false);
         return new ViewHolder(view, listener);
     }
-
-
-
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
@@ -109,7 +101,6 @@ public class AdapterClass extends RecyclerView.Adapter<AdapterClass.ViewHolder> 
         public ImageButton imageButton;
         public int position; // добавленное поле position
 
-
         public ViewHolder(View itemView, final OnItemClickListener listener) {
             super(itemView);
             this.position = position; // сохранение значения position
@@ -117,7 +108,6 @@ public class AdapterClass extends RecyclerView.Adapter<AdapterClass.ViewHolder> 
             //textView = itemView.findViewById(R.id.textView);
             button = itemView.findViewById(R.id.button1);
             imageButton = itemView.findViewById(R.id.imageButton);
-
             itemView.setOnClickListener(new View.OnClickListener() {
 
                 @Override
@@ -131,9 +121,6 @@ public class AdapterClass extends RecyclerView.Adapter<AdapterClass.ViewHolder> 
                 }
             });
         }
-
-
-
 
         public void onBindViewHolder(@NonNull AdapterClass.ViewHolder holder, int position) {
         }

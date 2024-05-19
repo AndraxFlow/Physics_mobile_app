@@ -16,8 +16,7 @@ import com.example.samsungproj.R;
 
 public class Kinematika extends AppCompatActivity {
 
-
-    private Button backButton; // Add backButton declaration
+    private Button backButton;
     WebView webView;
 
     public String fileName = "myfile.html";
@@ -26,10 +25,7 @@ public class Kinematika extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kinematika);
         final MediaPlayer mediaPlayer1 = MediaPlayer.create(this, R.raw.a1);
-
-        //Toast.makeText(this, "0", Toast.LENGTH_SHORT).show();
-        backButton = findViewById(R.id.backButton); // Initialize backButton
-
+        backButton = findViewById(R.id.backButton);
         // init webView
         webView = (WebView) findViewById(R.id.simpleWebView);
         // displaying content in WebView from html file that stored in assets folder
@@ -40,7 +36,7 @@ public class Kinematika extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 mediaPlayer1.start();
-                onBackPressed(); // Go back to the previous page
+                onBackPressed();
             }
         });
     }

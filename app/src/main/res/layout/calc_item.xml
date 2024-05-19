@@ -6,8 +6,6 @@
     android:layout_height="wrap_content"
     android:background="@color/white">
 
-
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="206dp"
@@ -28,7 +26,6 @@
                 style="@style/Widget.Material3.Button.IconButton.Filled"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
                 android:backgroundTint="@android:color/holo_green_dark"
                 android:layout_margin="3dp"
                 android:shadowColor="@color/black"

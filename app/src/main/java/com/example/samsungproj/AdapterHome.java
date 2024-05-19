@@ -27,12 +27,9 @@ public class AdapterHome extends ListAdapter<UserInfo, AdapterHome.UserViewHolde
         void onSwitchChanged(int position, boolean isChecked);
     }
 
-
-
     public AdapterHome(@NonNull DiffUtil.ItemCallback<UserInfo> diffCallback) {
         super(diffCallback);
     }
-
 
     public void setStations(List<UserInfo> stations) {
         submitList(stations);
@@ -45,9 +42,6 @@ public class AdapterHome extends ListAdapter<UserInfo, AdapterHome.UserViewHolde
                 parent,
                 false
         );
-
-
-
         return new UserViewHolder(view);      /////////////////////////////////////////// - возвращаешь view holder
     }
 
@@ -59,17 +53,10 @@ public class AdapterHome extends ListAdapter<UserInfo, AdapterHome.UserViewHolde
 
     public class UserViewHolder extends RecyclerView.ViewHolder {
         private HomeItemBinding addStationItemBinding;
-
-
-
-
         public UserViewHolder(@NonNull View itemView) {
             super(itemView);
             addStationItemBinding = HomeItemBinding.bind(itemView);
         }
-
-
-
 
         @SuppressLint("SetTextI18n")
         public void bind(UserInfo userInfo) {
@@ -88,8 +75,6 @@ public class AdapterHome extends ListAdapter<UserInfo, AdapterHome.UserViewHolde
             return (oldItem.getId() == newItem.getId());
         }
     }
-
-
     public void updateUserInfosList(List<UserInfo> userInfosList) {
         submitList(userInfosList);
     }

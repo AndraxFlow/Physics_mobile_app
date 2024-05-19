@@ -37,13 +37,9 @@ public class ListFragment extends Fragment {
     private List<String> dataList;
     private int MaxId;
 
-
-
     private UserInfoRepository userInfoRepository;
 
-    public ListFragment() {
-        // Required empty public constructor
-    }
+    public ListFragment() {}
     public void setOnItemClickListener(Adapter.OnItemClickListener listener) {
         adapter.setOnItemClickListener(listener);
     }
@@ -55,30 +51,14 @@ public class ListFragment extends Fragment {
         }
     }
 
-
-//    private class InsertAsyncTask extends AsyncTask<UserInfo, Void, Void> {
-//        @Override
-//        protected Void doInBackground(UserInfo... userInfo) {
-//            // Получение экземпляра базы данных
-//            AppDatabase db = Room.databaseBuilder(requireContext(), AppDatabase.class, "my-database").build();
-//
-//            // Вставка данных в базу данных
-//            db.userInfoDao().insertUserInfo(userInfo[0]);
-//
-//            return null;
-//        }
-//    }
-
-
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         userInfoRepository = new UserInfoRepository(requireActivity().getApplication());
 
     }
-    private void addUser(UserInfo userInfo) { // - добавить условие на добавление или замену
+    private void addUser(UserInfo userInfo) {
         userInfoRepository.insert(userInfo);
-        //userInfoRepository.update(userInfo.getId(), userInfo.getDatetime());
         Toast.makeText(getContext(), "", Toast.LENGTH_SHORT).show();
     }
 

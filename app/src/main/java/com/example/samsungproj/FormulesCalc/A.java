@@ -1,10 +1,6 @@
 package com.example.samsungproj.FormulesCalc;
-import android.app.Person;
-import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -12,28 +8,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 
 import com.example.samsungproj.R;
 
-
-import java.util.Collection;
-import java.util.List;
-import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.TimeoutException;
-
 public class A extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
-
-
-
     private EditText numberaEditText;
     private EditText numberfEditText;
     private EditText numbermEditText;
@@ -41,19 +20,15 @@ public class A extends AppCompatActivity implements AdapterView.OnItemSelectedLi
     private Spinner spinner;
     private EditText numberv0EditText;
     private EditText numbertEditText;
-
     private Button ansButton;
     private TextView resultTextView;
     private Button backButton; // Add backButton declaration
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.formules_a);
-
         spinner = (Spinner) findViewById(R.id.spinner);
-
         numberfEditText = findViewById(R.id.numberfEditText);
         numberaEditText = findViewById(R.id.numberaEditText);
         numberv0EditText = findViewById(R.id.numberv0EditText);
@@ -61,28 +36,18 @@ public class A extends AppCompatActivity implements AdapterView.OnItemSelectedLi
         numbervEditText = findViewById(R.id.numbervEditText);
         numbermEditText = findViewById(R.id.numbermEditText);
         final MediaPlayer mediaPlayer1 = MediaPlayer.create(this, R.raw.a2);
-
         ansButton = findViewById(R.id.divideButton);
         resultTextView = findViewById(R.id.resultTextView);
         backButton = findViewById(R.id.backButton); // Initialize backButton
-
-
-
-
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
                 this,
                 R.array.choiseA,
                 android.R.layout.simple_spinner_item
         );
-
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
         Spinner spinner = (Spinner) findViewById(R.id.spinner);
         spinner.setOnItemSelectedListener(this);
-
-
-
-
         ansButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -98,7 +63,6 @@ public class A extends AppCompatActivity implements AdapterView.OnItemSelectedLi
                 onBackPressed(); // Go back to the previous page
             }
         });
-
     }
 
     private void calculateResult(char operator) {
@@ -122,32 +86,32 @@ public class A extends AppCompatActivity implements AdapterView.OnItemSelectedLi
         double numberm;
         if (F.matches("")) {
             numberf = 0.000000000001;
-        }else {
+        } else {
             numberf = Double.parseDouble(numberfEditText.getText().toString());
         }
         if (A.matches("")) {
             numbera = 0.000000000001;
-        }else {
+        } else {
             numbera = Double.parseDouble(numberaEditText.getText().toString());
         }
         if (V0.matches("")) {
             numberv0 = 0.000000000001;
-        }else {
+        } else {
             numberv0 = Double.parseDouble(numberv0EditText.getText().toString());
         }
         if (V.matches("")) {
             numberv = 0.000000000001;
-        }else {
+        } else {
             numberv = Double.parseDouble(numbervEditText.getText().toString());
         }
         if (T.matches("")) {
             numbert = 0.000000000001;
-        }else {
+        } else {
             numbert = Double.parseDouble(numbertEditText.getText().toString());
         }
         if (M.matches("")) {
             numberm = 0.000000000001;
-        }else {
+        } else {
             numberm = Double.parseDouble(numbermEditText.getText().toString());
         }
         double result = 0;
@@ -168,7 +132,7 @@ public class A extends AppCompatActivity implements AdapterView.OnItemSelectedLi
                         resultTextView.setText("F = " + String.valueOf(numbera) + " * " + String.valueOf(numberm) +
                                 " = " + String.valueOf(result) + " H");
                     } else if (numbera == 0.000000000001) {
-                        if (numberm != 0 ) {
+                        if (numberm != 0) {
                             result = numberf / numberm;
                             resultTextView.setText("a = " + String.valueOf(numberf) + " / "
                                     + String.valueOf(numberm) + " = " + String.valueOf(result) + " м/с^2");
@@ -176,7 +140,7 @@ public class A extends AppCompatActivity implements AdapterView.OnItemSelectedLi
                             resultTextView.setText("Ошибка: деление на 0");
                         }
                     } else if (numberm == 0.000000000001) {
-                        if (numbera != 0 ) {
+                        if (numbera != 0) {
                             result = numberf / numbera;
                             resultTextView.setText("m = " + String.valueOf(numberf) + " / "
                                     + String.valueOf(numbera) + " = " + String.valueOf(result) + " кг");
@@ -203,13 +167,13 @@ public class A extends AppCompatActivity implements AdapterView.OnItemSelectedLi
                             resultTextView.setText("a = (" + String.valueOf(numberv) + " - " + String.valueOf(numberv0) +
                                     ") / " + String.valueOf(numbert) +
                                     " = " + String.valueOf(result) + " м/с^2");
-                        }else {
+                        } else {
                             resultTextView.setText("Ошибка: деление на 0");
                         }
                     } else if (numberv == 0.000000000001) {
                         result = numbera * numbert + numberv0;
                         resultTextView.setText("V = " + String.valueOf(numbera) + " * " + String.valueOf(numbert) + " + "
-                                    + String.valueOf(numberv0) + " = " + String.valueOf(result) + " м/с");
+                                + String.valueOf(numberv0) + " = " + String.valueOf(result) + " м/с");
 
                     } else if (numberv0 == 0.000000000001) {
                         result = -1 * numbera * numbert + numberv;
@@ -230,17 +194,17 @@ public class A extends AppCompatActivity implements AdapterView.OnItemSelectedLi
                 break;
             case 'r':
                 if (((numbera == 0.000000000001) && (numberm == 0.000000000001)) ||
-                        ((numbera == 0.000000000001) && (numberv== 0.000000000001)) ||
+                        ((numbera == 0.000000000001) && (numberv == 0.000000000001)) ||
                         ((numberm == 0.000000000001) && (numberv == 0.000000000001))) {
                     resultTextView.setText("Ошибка: Слишком много неизвестных");
                 } else if ((numbera != 0.000000000001) && (numberv != 0.000000000001) && (numberm != 0.000000000001)) {
                     resultTextView.setText("Ошибка: Вы уже все знаете");
                 } else {
                     if (numbera == 0.000000000001) {
-                        if (numberm != 0 ) {
-                        result = numberv * numberv / numberm;
-                        resultTextView.setText("a = " + String.valueOf(numberv) + " ^ 2 " + " / " +
-                               String.valueOf(numberm) + " = " + String.valueOf(result) + " м/c^2");
+                        if (numberm != 0) {
+                            result = numberv * numberv / numberm;
+                            resultTextView.setText("a = " + String.valueOf(numberv) + " ^ 2 " + " / " +
+                                    String.valueOf(numberm) + " = " + String.valueOf(result) + " м/c^2");
                         } else {
                             resultTextView.setText("Ошибка: деление на 0");
                         }
@@ -253,7 +217,7 @@ public class A extends AppCompatActivity implements AdapterView.OnItemSelectedLi
                             resultTextView.setText("Ошибка: корень из отрицательного числа");
                         }
                     } else if (numberm == 0.000000000001) {
-                        if (numbera != 0 ) {
+                        if (numbera != 0) {
                             result = numberv * numberv / numbera;
                             resultTextView.setText("R = " + String.valueOf(numberv) + " ^ 2 " + " / " +
                                     String.valueOf(numbera) + " = " + String.valueOf(result) + " м");
@@ -264,8 +228,6 @@ public class A extends AppCompatActivity implements AdapterView.OnItemSelectedLi
                 }
                 break;
         }
-
-
     }
 
     @Override
@@ -280,12 +242,6 @@ public class A extends AppCompatActivity implements AdapterView.OnItemSelectedLi
         ansButton = findViewById(R.id.divideButton);
         resultTextView = findViewById(R.id.resultTextView);
         ansButton.setVisibility(View.GONE);
-
-
-
-
-
-
         switch (position) {
             case 0:
                 textView = findViewById(R.id.resultTextView);
@@ -372,16 +328,10 @@ public class A extends AppCompatActivity implements AdapterView.OnItemSelectedLi
             default:
                 break;
         }
-
     }
-
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 
     }
-
-
-
-
 }
 

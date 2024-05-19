@@ -5,11 +5,9 @@
     style="@style/Widget.Material3.Button.IconButton.Filled"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-
     android:backgroundTint="@android:color/holo_green_dark"
     android:shadowColor="@color/black"
     android:text="Ссылка на новую страницу"
     app:icon="?android:attr/colorActivatedHighlight"
-
     app:iconPadding="20dp"
     app:rippleColor="#224723" />

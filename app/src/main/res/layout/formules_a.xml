@@ -14,7 +14,6 @@
         android:text="Назад"
         android:textColor="#FFFFFF" />
 
-
     <Spinner
         android:id="@+id/spinner"
         android:layout_width="match_parent"
@@ -27,8 +26,6 @@
         android:textSize="24sp"
         android:textStyle="bold"
         android:text="S = v * t\nВведите все известные значения\n"/>
-
-
 
     <Button
         android:id="@+id/divideButton"
@@ -70,7 +67,5 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Введите m" />
-
-
 
 </LinearLayout>

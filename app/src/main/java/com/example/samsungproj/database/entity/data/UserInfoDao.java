@@ -35,12 +35,6 @@ public interface UserInfoDao {
     @Query("UPDATE user_info  SET datetime= :name WHERE id= :id")
     void updateName(int id, String name);
 
-
-    //@Query("UPDATE user_info  SET id= :id WHERE datetime= :name")
-
-//    @Query("SELECT * FROM user_info WHERE datetime IN (SELECT MAX(datetime) FROM user_info GROUP BY datetime) ORDER BY id DESC")
-//    List<UserInfo> getLastRecords();
-
     @Query("SELECT MAX(id) AS id, datetime, topic_id, scroll_position " +
                   "FROM user_info " +
                   "GROUP BY datetime " +

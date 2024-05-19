@@ -7,7 +7,6 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
 
-import com.example.samsungproj.database.entity.data.UserInfoRepository;
 import com.example.samsungproj.database.entity.models.UserInfo;
 
 import java.util.List;
@@ -31,8 +30,6 @@ public class ItemViewModel extends AndroidViewModel {
     public void insert(UserInfo station) {
         mRepository.insert(station);
     }
-//    public void update(Station station) { mRepository.update(station); }
 
-   // public void updateStations(List<UserInfo> stations) { mRepository.update(stations); } ///
 
 }

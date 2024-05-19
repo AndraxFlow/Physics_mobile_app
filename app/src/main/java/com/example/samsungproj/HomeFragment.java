@@ -1,9 +1,6 @@
 package com.example.samsungproj;
 
-
-
 import android.content.Context;
-import android.content.Intent;
 import android.media.AudioManager;
 import android.os.Bundle;
 
@@ -30,41 +27,25 @@ import com.example.samsungproj.database.entity.models.UserInfo;
 import com.example.samsungproj.database.entity.data.UserInfoDao;
 import com.example.samsungproj.database.entity.data.UserInfoRepository;
 import com.example.samsungproj.databinding.FragmentHomeBinding;
-import com.example.samsungproj.themes.Kinematika;
 
 import java.util.List;
 
 public class HomeFragment extends Fragment {
-
-
-
-
-    //private AdapterHome adapterHome;
     private ImageView MUTE_btn;    // Кнопка MUTE   (уменьшения громкости до нуля во всем приложении)
     private ImageView UNMUTE_btn;  // Кнопка UNMUTE (увеличения громкости почти до max во всем приложении)
-
-
     private List<UserInfo> dataList;
-
     private Button button1;
     private Button button2;
     private ImageView imageView;
-
-
     private Object applicationContext;
-
     private AppDatabase db;
     private UserInfoDao userInfoDao;
     private UserInfoRepository userInfoRepository;
-
-
     public FragmentHomeBinding binding;
     private ItemViewModel mStationViewModel;
-
     public ItemViewModel getStationViewModel() {
         return mStationViewModel;
     }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,7 +53,6 @@ public class HomeFragment extends Fragment {
         mStationViewModel = new ViewModelProvider(this).get(ItemViewModel.class);
     }
     public HomeFragment() {
-        // Required empty public constructor
     }
 
     @Override
@@ -87,10 +67,6 @@ public class HomeFragment extends Fragment {
         EditText editTextUpdateDb = (EditText) view.findViewById(R.id.editTextUpdateDb);
         EditText editTextId = (EditText) view.findViewById(R.id.editTextId);
         imageView.setImageResource(R.drawable.simple_isaac_newton_apples_trees_green_humor_science_green_background_digital_art_1367075);
-
-        // Кнопка при нажатии, на которую громкость в приложении станет НУЛЕВОЙ (MUTE_btn).
-        // Сама кнопка станет невидимой, а ВИДИМОЙ станет кнопка ВКЛючения звука (UNMUTE_btn).
-
         MUTE_btn = (ImageView)view.findViewById(R.id.stop_sound);
 
         MUTE_btn.setOnClickListener(new View.OnClickListener(){
@@ -101,9 +77,6 @@ public class HomeFragment extends Fragment {
                 UNMUTE_btn.setVisibility(View.VISIBLE);
             }
         });
-
-        // Кнопка при нажатии, на которую громкость в приложеии станет почти MAX (UNMUTE_btn).
-        // Сама кнопка станет невидимой, а ВИДИМОЙ станет кнопка ВЫКЛючения звука (MUTE_btn).
 
         UNMUTE_btn = (ImageView)view.findViewById(R.id.play_sound);
 
@@ -123,11 +96,9 @@ public class HomeFragment extends Fragment {
                 false
         ));
 
-        // Установка видимости соответствующих кнопок при запуске Activity
         int app_volume;
-
         AudioManager audioManager2 = (AudioManager) getActivity().getSystemService(Context.AUDIO_SERVICE);
-        app_volume = audioManager2.getStreamVolume(AudioManager.STREAM_MUSIC); // вот тут у меня и была ошибка
+        app_volume = audioManager2.getStreamVolume(AudioManager.STREAM_MUSIC);
 
         if(app_volume == 0){
             MUTE_btn.setVisibility(View.INVISIBLE);
@@ -163,8 +134,6 @@ public class HomeFragment extends Fragment {
                 Log.d("HF", "Size: " + userInfo.getId());
 
                 addUser(userInfo);
-
-
             }
         });
 
@@ -174,58 +143,37 @@ public class HomeFragment extends Fragment {
                 getUser();
             }
         });
-
-
         return view;
     }
 
-
     public boolean onKeyUp(int keyCode, KeyEvent event) {
 
-        // при нажатии на кнопку громкости вверх, смена видимости соответствующих кнопок
-
         if (keyCode == KeyEvent.KEYCODE_VOLUME_UP) {
-
             MUTE_btn.setVisibility(View.VISIBLE);
             UNMUTE_btn.setVisibility(View.INVISIBLE);
             return true;
-
         }
-
-        // при нажатии на кнопку громкости вниз, смена видимости соответствующих кнопок
-
         if (keyCode == KeyEvent.KEYCODE_VOLUME_DOWN) {
-//  заметьте, тот же код, что и в методе on Create, т.к. необходимо, чтобы фон кнопки менялся только
-            // при достижении нулевого уровня громкости
-
             int app_volume;
             AudioManager audioManager2 = (AudioManager) getActivity().getSystemService(Context.AUDIO_SERVICE);
             app_volume = audioManager2.getStreamVolume(AudioManager.STREAM_MUSIC);
-
             if (app_volume == 0) {
-
                 MUTE_btn.setVisibility(View.INVISIBLE);
                 UNMUTE_btn.setVisibility(View.VISIBLE);
-
             } else {
-
                 MUTE_btn.setVisibility(View.VISIBLE);
                 UNMUTE_btn.setVisibility(View.INVISIBLE);
-
             };
             return true;
         }
         return false;
     }
 
-
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         userInfoRepository = new UserInfoRepository(requireActivity().getApplication());
-
     }
-
 
     private void addUser(UserInfo userInfo) {
         userInfoRepository.insert(userInfo);

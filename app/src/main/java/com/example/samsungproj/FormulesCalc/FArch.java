@@ -1,12 +1,10 @@
 package com.example.samsungproj.FormulesCalc;
-import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
-        import android.view.View;
-        import android.widget.Button;
-        import android.widget.EditText;
-        import android.widget.TextView;
-import android.widget.Toast;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -18,25 +16,18 @@ public class FArch extends AppCompatActivity {
     private EditText numbergEditText;
     private EditText numberpEditText;
     private EditText numbervEditText;
-
-
     private Button ansButton;
     private TextView resultTextView;
-    private Button backButton; // Add backButton declaration
-
-
-
+    private Button backButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.formules_farch);
         numberfEditText = findViewById(R.id.numberfEditText);
         final MediaPlayer mediaPlayer1 = MediaPlayer.create(this, R.raw.a2);
-
         numbergEditText = findViewById(R.id.numbergEditText);
         numberpEditText = findViewById(R.id.numberpEditText);
         numbervEditText = findViewById(R.id.numbervEditText);
-
         ansButton = findViewById(R.id.divideButton);
         resultTextView = findViewById(R.id.resultTextView);
         backButton = findViewById(R.id.backButton); // Initialize backButton
@@ -56,7 +47,6 @@ public class FArch extends AppCompatActivity {
                 onBackPressed(); // Go back to the previous page
             }
         });
-
     }
 
     private void calculateResult(char operator) {
@@ -93,7 +83,6 @@ public class FArch extends AppCompatActivity {
              numberv = Double.parseDouble(numbervEditText.getText().toString());
         }
         double result = 0;
-
         switch (operator) {
             case '*':
                 if (((numberp == 0) && (numberf == 0)) ||
@@ -127,8 +116,6 @@ public class FArch extends AppCompatActivity {
                     break;
                 }
         }
-
-
     }
 }
 

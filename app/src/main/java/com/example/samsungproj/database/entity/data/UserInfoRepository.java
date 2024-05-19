@@ -34,7 +34,6 @@ public class UserInfoRepository {
         return userInfoList;
     }
 
-
     public LiveData<List<UserInfo>> getUserInfoList() {
         return listLiveData;
     }
@@ -45,8 +44,6 @@ public class UserInfoRepository {
 
         });
     }
-
-
 
     public void update(int id, String name) {
         UserInfoDatabase.databaseWriteExecutor.execute(() -> {
@@ -72,7 +69,4 @@ public class UserInfoRepository {
         return MaxID;
 
     }
-
-
-
 }

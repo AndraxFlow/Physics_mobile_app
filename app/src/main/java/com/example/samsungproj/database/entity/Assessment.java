@@ -13,7 +13,6 @@ public class Assessment {
     @ColumnInfo(name = "topic_i")
     public int topicId;
 
-
     public int getId() {
         return id;
     }
