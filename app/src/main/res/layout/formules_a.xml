@@ -39,33 +39,39 @@
         android:id="@+id/numberfEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Введите f" />
+        android:hint="Введите f"
+        android:inputType="number"/>
 
     <EditText
         android:id="@+id/numberaEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Введите a" />
+        android:hint="Введите a"
+        android:inputType="number"/>
     <EditText
         android:id="@+id/numbertEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Введите t" />
+        android:hint="Введите t"
+        android:inputType="number"/>
     <EditText
         android:id="@+id/numbervEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Введите v" />
+        android:hint="Введите v"
+        android:inputType="number"/>
     <EditText
         android:id="@+id/numberv0EditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Введите v0" />
+        android:hint="Введите v0"
+        android:inputType="number"/>
 
     <EditText
         android:id="@+id/numbermEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Введите m" />
+        android:hint="Введите m"
+        android:inputType="number"/>
 
 </LinearLayout>
